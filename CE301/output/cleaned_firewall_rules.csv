@@ -1,0 +1,33 @@
+ID,Action,Source,Destination,Protocol,Port,Priority,ai_score,ai_level,ai_reason
+17,deny,any,10.0.0.0/8,any,any,6,78,high,"source is unrestricted; destination is a very broad network (/8); protocol is unrestricted; all ports are exposed; rule denies traffic, which reduces exposure; ML anomaly detector flagged this rule as unusual"
+1,permit,10.0.0.0/8,any,tcp,80,34,65,high,source is a very broad network (/8); destination is unrestricted; sensitive service port is exposed (80/http); rule allows traffic
+21,permit,10.0.0.0/8,any,tcp,443,34,65,high,source is a very broad network (/8); destination is unrestricted; sensitive service port is exposed (443/https); rule allows traffic
+8,permit,10.1.0.0/16,any,tcp,80,39,59,medium,source is a broad network (/16); destination is unrestricted; sensitive service port is exposed (80/http); rule allows traffic
+14,permit,10.10.0.0/16,any,tcp,80,39,59,medium,source is a broad network (/16); destination is unrestricted; sensitive service port is exposed (80/http); rule allows traffic
+12,deny,any,10.99.0.0/16,udp,53,41,42,medium,"source is unrestricted; destination is a broad network (/16); sensitive service port is exposed (53/dns); rule denies traffic, which reduces exposure"
+2,permit,192.168.10.0/24,any,tcp,443,44,53,medium,source covers a medium-sized subnet (/24); destination is unrestricted; sensitive service port is exposed (443/https); rule allows traffic
+4,permit,10.123.45.0/24,any,tcp,443,44,53,medium,source covers a medium-sized subnet (/24); destination is unrestricted; sensitive service port is exposed (443/https); rule allows traffic
+9,permit,192.168.77.0/24,any,tcp,22,44,53,medium,source covers a medium-sized subnet (/24); destination is unrestricted; sensitive service port is exposed (22/ssh); rule allows traffic
+18,permit,172.18.1.0/24,any,tcp,139,44,53,medium,source covers a medium-sized subnet (/24); destination is unrestricted; sensitive service port is exposed (139/netbios); rule allows traffic
+22,permit,10.1.1.1/32,any,icmp,any,44,52,medium,destination is unrestricted; all ports are exposed; rule allows traffic; ML anomaly detector flagged this rule as slightly unusual
+34,permit,172.18.1.0/24,any,tcp,445,44,53,medium,source covers a medium-sized subnet (/24); destination is unrestricted; sensitive service port is exposed (445/smb); rule allows traffic
+45,permit,any,172.16.10.10/32,tcp,80,44,52,medium,source is unrestricted; sensitive service port is exposed (80/http); rule allows traffic
+49,permit,any,10.2.3.4/32,tcp,80,44,52,medium,source is unrestricted; sensitive service port is exposed (80/http); rule allows traffic
+36,deny,any,10.20.30.40/32,icmp,any,46,35,medium,"source is unrestricted; all ports are exposed; rule denies traffic, which reduces exposure; ML anomaly detector flagged this rule as slightly unusual"
+7,permit,192.168.200.5/32,any,tcp,22,49,47,medium,destination is unrestricted; sensitive service port is exposed (22/ssh); rule allows traffic
+19,permit,192.168.1.100/32,any,tcp,3389,49,47,medium,destination is unrestricted; sensitive service port is exposed (3389/rdp); rule allows traffic
+25,permit,10.0.0.5/32,any,tcp,22,49,47,medium,destination is unrestricted; sensitive service port is exposed (22/ssh); rule allows traffic
+3,deny,any,10.1.0.5/32,tcp,80,51,30,medium,"source is unrestricted; sensitive service port is exposed (80/http); rule denies traffic, which reduces exposure"
+10,deny,any,172.16.200.5/32,tcp,23,51,30,medium,"source is unrestricted; sensitive service port is exposed (23/telnet); rule denies traffic, which reduces exposure"
+20,deny,any,10.2.3.4/32,tcp,80,51,30,medium,"source is unrestricted; sensitive service port is exposed (80/http); rule denies traffic, which reduces exposure"
+24,deny,any,172.16.10.10/32,tcp,80,51,30,medium,"source is unrestricted; sensitive service port is exposed (80/http); rule denies traffic, which reduces exposure"
+27,deny,10.0.5.0/24,any,udp,53,51,31,medium,"source covers a medium-sized subnet (/24); destination is unrestricted; sensitive service port is exposed (53/dns); rule denies traffic, which reduces exposure"
+31,permit,10.5.5.0/24,any,udp,500,54,43,medium,source covers a medium-sized subnet (/24); destination is unrestricted; well-known service port is exposed (500); rule allows traffic
+33,deny,192.168.100.0/24,any,tcp,8080,54,28,low,"source covers a medium-sized subnet (/24); destination is unrestricted; rule denies traffic, which reduces exposure; ML anomaly detector flagged this rule as unusual"
+16,deny,192.168.200.5/32,any,tcp,22,56,25,low,"destination is unrestricted; sensitive service port is exposed (22/ssh); rule denies traffic, which reduces exposure"
+23,permit,192.168.100.0/24,any,tcp,8080,57,40,medium,source covers a medium-sized subnet (/24); destination is unrestricted; rule allows traffic; ML anomaly detector flagged this rule as slightly unusual
+32,permit,192.168.50.0/24,8.8.8.8,udp,53,59,38,medium,source covers a medium-sized subnet (/24); sensitive service port is exposed (53/dns); rule allows traffic
+11,permit,172.16.20.10/32,192.168.50.1/32,tcp,22,60,32,medium,sensitive service port is exposed (22/ssh); rule allows traffic
+26,permit,172.20.5.0/24,172.20.10.0/24,udp,161,60,34,medium,source covers a medium-sized subnet (/24); destination covers a medium-sized subnet (/24); well-known service port is exposed (161); rule allows traffic
+6,permit,10.5.5.0/24,any,udp,4500,62,35,medium,source covers a medium-sized subnet (/24); destination is unrestricted; rule allows traffic
+5,deny,192.168.50.0/24,8.8.8.8,udp,53,66,16,low,"source covers a medium-sized subnet (/24); sensitive service port is exposed (53/dns); rule denies traffic, which reduces exposure"

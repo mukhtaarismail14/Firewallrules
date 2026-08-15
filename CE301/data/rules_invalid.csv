@@ -1,0 +1,6 @@
+ID,Action,Source,Destination,Protocol,Port
+1,allow,ANY,INTERNAL,TCP,80
+2,permit,,DMZ,UDP,53
+2,deny,ANY,ANY,TCP,abc
+4,permit,10.0.0.0/8,DATABASE,ICMP,22
+5,block,ANY,ANY,TCP,443

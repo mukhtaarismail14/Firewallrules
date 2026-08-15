@@ -1,0 +1,96 @@
+==========================================================
+FIREWALL RULE OPTIMISATION REPORT
+==========================================================
+Source file              : /var/folders/6h/0khch_v95fl_ds_dtqqvn5hc0000gn/T/tmp2alteczr.csv
+Rules before optimisation: 50
+Rules after optimisation : 32
+Rule reduction           : 18 (36.0%)
+Duplicates found         : 18
+Conflicts found          : 7
+Shadowed rules found     : 11
+
+PERFORMANCE
+----------------------------------------------------------
+Load rules    :     0.28 ms
+AI scoring    :    70.62 ms
+Detection     :     5.63 ms
+Optimisation  :     0.35 ms
+Total         :    76.88 ms
+
+AI RISK SUMMARY
+----------------------------------------------------------
+High   : 5
+Medium : 41
+Low    : 4
+
+TOP HIGH-RISK RULES
+----------------------------------------------------------
+Rule 17: DENY any -> 10.0.0.0/8 any/any | score=78 | source is unrestricted; destination is a very broad network (/8); protocol is unrestricted; all ports are exposed; rule denies traffic, which reduces exposure; ML anomaly detector flagged this rule as unusual
+Rule 1: PERMIT 10.0.0.0/8 -> any tcp/80 | score=65 | source is a very broad network (/8); destination is unrestricted; sensitive service port is exposed (80/http); rule allows traffic
+Rule 15: PERMIT 10.0.0.0/8 -> any tcp/80 | score=65 | source is a very broad network (/8); destination is unrestricted; sensitive service port is exposed (80/http); rule allows traffic
+Rule 21: PERMIT 10.0.0.0/8 -> any tcp/443 | score=65 | source is a very broad network (/8); destination is unrestricted; sensitive service port is exposed (443/https); rule allows traffic
+Rule 50: PERMIT 10.0.0.0/8 -> any tcp/443 | score=65 | source is a very broad network (/8); destination is unrestricted; sensitive service port is exposed (443/https); rule allows traffic
+
+DUPLICATES
+----------------------------------------------------------
+Rule 2 duplicates Rule 13
+Rule 1 duplicates Rule 15
+Rule 26 duplicates Rule 28
+Rule 11 duplicates Rule 29
+Rule 9 duplicates Rule 30
+Rule 8 duplicates Rule 35
+Rule 19 duplicates Rule 37
+Rule 6 duplicates Rule 38
+Rule 27 duplicates Rule 39
+Rule 14 duplicates Rule 40
+Rule 36 duplicates Rule 41
+Rule 12 duplicates Rule 42
+Rule 7 duplicates Rule 43
+Rule 5 duplicates Rule 44
+Rule 10 duplicates Rule 46
+Rule 25 duplicates Rule 47
+Rule 4 duplicates Rule 48
+Rule 21 duplicates Rule 50
+
+CONFLICTS
+----------------------------------------------------------
+Rule 5 conflicts with Rule 32
+Rule 7 conflicts with Rule 16
+Rule 16 conflicts with Rule 43
+Rule 20 conflicts with Rule 49
+Rule 23 conflicts with Rule 33
+Rule 24 conflicts with Rule 45
+Rule 32 conflicts with Rule 44
+
+SHADOWED RULES
+----------------------------------------------------------
+Rule 1 shadows Rule 8: PERMIT 10.0.0.0/8 -> any tcp/80 covers 10.1.0.0/16 -> any tcp/80
+Rule 1 shadows Rule 14: PERMIT 10.0.0.0/8 -> any tcp/80 covers 10.10.0.0/16 -> any tcp/80
+Rule 1 shadows Rule 35: PERMIT 10.0.0.0/8 -> any tcp/80 covers 10.1.0.0/16 -> any tcp/80
+Rule 1 shadows Rule 40: PERMIT 10.0.0.0/8 -> any tcp/80 covers 10.10.0.0/16 -> any tcp/80
+Rule 15 shadows Rule 35: PERMIT 10.0.0.0/8 -> any tcp/80 covers 10.1.0.0/16 -> any tcp/80
+Rule 15 shadows Rule 40: PERMIT 10.0.0.0/8 -> any tcp/80 covers 10.10.0.0/16 -> any tcp/80
+Rule 17 shadows Rule 20: DENY any -> 10.0.0.0/8 any/any covers any -> 10.2.3.4/32 tcp/80
+Rule 17 shadows Rule 36: DENY any -> 10.0.0.0/8 any/any covers any -> 10.20.30.40/32 icmp/any
+Rule 17 shadows Rule 41: DENY any -> 10.0.0.0/8 any/any covers any -> 10.20.30.40/32 icmp/any
+Rule 17 shadows Rule 42: DENY any -> 10.0.0.0/8 any/any covers any -> 10.99.0.0/16 udp/53
+Rule 21 shadows Rule 48: PERMIT 10.0.0.0/8 -> any tcp/443 covers 10.123.45.0/24 -> any tcp/443
+
+FIRST 10 OPTIMISED RULES
+----------------------------------------------------------
+Priority 6   | Rule 17  | DENY   any -> 10.0.0.0/8 any/any
+Priority 34  | Rule 1   | PERMIT 10.0.0.0/8 -> any tcp/80
+Priority 34  | Rule 21  | PERMIT 10.0.0.0/8 -> any tcp/443
+Priority 39  | Rule 8   | PERMIT 10.1.0.0/16 -> any tcp/80
+Priority 39  | Rule 14  | PERMIT 10.10.0.0/16 -> any tcp/80
+Priority 41  | Rule 12  | DENY   any -> 10.99.0.0/16 udp/53
+Priority 44  | Rule 2   | PERMIT 192.168.10.0/24 -> any tcp/443
+Priority 44  | Rule 4   | PERMIT 10.123.45.0/24 -> any tcp/443
+Priority 44  | Rule 9   | PERMIT 192.168.77.0/24 -> any tcp/22
+Priority 44  | Rule 18  | PERMIT 172.18.1.0/24 -> any tcp/139
+
+OUTPUT FILES
+----------------------------------------------------------
+/Users/mukhtaar/Documents/CE301/output/cleaned_firewall_rules.csv
+/Users/mukhtaar/Documents/CE301/output/report.txt
+==========================================================
